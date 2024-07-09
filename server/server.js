@@ -22,6 +22,7 @@ const { chats } = require("./data/data.js");
 app.use(cors());
 
 app.get("/", (req, res) => {
+  res.send("hello");
   res.send(chats);
 });
 
