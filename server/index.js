@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const connectDB = require("./config/db.js");
+const path = require("path");
 
 const userRoutes = require("./routes/userRoutes.js");
 const chatRoutes = require("./routes/chatRoutes.js");
@@ -21,13 +22,22 @@ const { chats } = require("./data/data.js");
 
 app.use(cors());
 
-app.get("/", (req, res) => {
-  res.json("hello");
-});
-
 app.use("/api/user", userRoutes);
 app.use("/api/chat", chatRoutes);
 app.use("/api/message", messageRoutes);
+
+const __dirname1 = path.dirname(path.resolve());
+console.log(__dirname1);
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname1, "/client/build")));
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname1, "client", "build", "index.html"));
+  });
+} else {
+  app.get("/", (req, res) => {
+    res.json("server running...");
+  });
+}
 
 app.use(notFound);
 app.use(errorHandler);
