@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "server": "node index.js",
-    "build": "npm install && cd .. && cd client npm install && npm run build"
+    "build": "npm install --legacy-peer-deps && cd .. && cd client npm install --legacy-peer-deps && npm run build"
   },
   "author": "miroj",
   "license": "ISC",
