@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js",
-    "build": "npm install --legacy-peer-deps && cd client && npm install --legacy-peer-deps && npm run build"
+    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
   },
   "author": "miroj",
   "license": "ISC",
