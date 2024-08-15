@@ -23,10 +23,7 @@ const MyChats = () => {
         },
       };
 
-      const { data } = await axios.get(
-        "http://localhost:8000/api/chat",
-        config
-      );
+      const { data } = await axios.get("/api/chatt", config);
 
       setChats(data);
     } catch (error) {

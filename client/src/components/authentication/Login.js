@@ -39,7 +39,7 @@ const Login = () => {
         },
       };
       const { data } = await axios.post(
-        "http://localhost:8000/api/user/login",
+        "/api/user/login",
         {
           email,
           password,
@@ -106,6 +106,7 @@ const Login = () => {
       </FormControl>
 
       <Button
+        isLoading={loading}
         colorScheme="blue"
         width={"100%"}
         style={{ marginTop: 15 }}

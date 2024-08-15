@@ -21,7 +21,7 @@ import ScrollableChat from "./ScrollableChat";
 import animationData from "../animations/typing_animation.json";
 import "./styles.css";
 
-const ENDPOINT = "http://localhost:8000";
+const ENDPOINT = "https://chit-chat-j18c.onrender.com/";
 
 var socket, selectedChatCompare;
 
