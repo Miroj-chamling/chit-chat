@@ -48,7 +48,7 @@ const UpdateGroupChatModel = ({ fetchMessages }) => {
       };
 
       const { data } = await axios.put(
-        "http://localhost:8000/api/chat/rename",
+        "/api/chat/rename",
         {
           chatId: selectedChat._id,
           chatName: groupChatName,
@@ -114,7 +114,7 @@ const UpdateGroupChatModel = ({ fetchMessages }) => {
         },
       };
       const { data } = await axios.put(
-        "http://localhost:8000/api/chat/groupadd",
+        "/api/chat/groupadd",
         { chatId: selectedChat._id, userId: userToAdd._id },
         config
       );
@@ -145,10 +145,7 @@ const UpdateGroupChatModel = ({ fetchMessages }) => {
         },
       };
 
-      const { data } = await axios.get(
-        `http://localhost:8000/api/user?search=${search}`,
-        config
-      );
+      const { data } = await axios.get(`/api/user?search=${search}`, config);
 
       const newData = data.filter(
         (user) => !selectedChat.users.some((u) => u._id === user._id)
@@ -184,7 +181,7 @@ const UpdateGroupChatModel = ({ fetchMessages }) => {
         },
       };
       const { data } = await axios.put(
-        "http://localhost:8000/api/chat/groupremove",
+        "/api/chat/groupremove",
         { chatId: selectedChat._id, userId: userToRemove._id },
         config
       );
