@@ -81,7 +81,6 @@ const Login = () => {
       <FormControl id="email-login" isRequired>
         <FormLabel>Email</FormLabel>
         <Input
-          variant={"flushed"}
           placeholder="Enter Your Name"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
